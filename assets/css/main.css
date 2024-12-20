@@ -2662,7 +2662,8 @@ input, select, textarea {
   }
   
   #experience-timeline {
-	margin: 30px auto 0 auto;
+	margin-top: 30px;
+	margin-left: -100px;
 	position: relative;
 	max-width: 1000px;
   }
@@ -2691,12 +2692,13 @@ input, select, textarea {
   
   .vtimeline-content {
 	margin-left: 350px;
-	margin-right: 10px;
+	margin-right: 0%;
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	padding: 15px;
 	border-radius: 3px;
 	text-align: left;
+	border-radius: 8px; /* Optional: rounded corners */
   }
   .vtimeline-content h3 {
 	font-size: 1.5em;
