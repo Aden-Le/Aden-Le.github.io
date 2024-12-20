@@ -2667,6 +2667,7 @@ input, select, textarea {
 	position: relative;
 	max-width: 1000px;
   }
+  
   #experience-timeline:before {
 	position: absolute;
 	content: "";
@@ -2752,8 +2753,16 @@ input, select, textarea {
 	font-weight: 300;
 	color: #374054;
   }
-
-
+  .flex-container {
+	display: flex; /* Use flexbox to align elements in the same row */
+	justify-content: space-between; /* Ensures the h3 and h5 are spaced to the left and right */
+	align-items: center; /* Vertically align the items to the center */
+  }
+  
+.flex-container h5 {
+	font-size: 20px; /* Optional: Adjust font size for the date */
+	margin: 0; /* Removes the default margin of the h5 */
+  }
   /*
     --------------------------------
     ----- Education Styles -----
