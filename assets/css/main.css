@@ -2671,28 +2671,6 @@ input, select, textarea {
 	width: -50%; /* Optional: Adjusts the width of the element */
   }
   
-  #experience-timeline:before {
-	position: absolute;
-	content: "";
-	top: 0;
-	bottom: 0;
-	left: 30.5%;
-	right: auto;
-	height: 100%;
-	width: 3px;
-	background: #3498db;
-	z-index: 0;
-  }
-  #experience-timeline:after {
-	position: absolute;
-	content: "";
-	width: 3px;
-	height: 40px;
-	background: #3498db;
-	background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
-	top: 100%;
-	left: 30.5%;
-  }
   
   .vtimeline-content {
 	margin-left: 40%;
@@ -2722,6 +2700,29 @@ input, select, textarea {
 	font-size: .9em;
 	margin: 0;
   }
+
+    #experience-timeline:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: 30%;
+	right: auto;
+	height: 100%;
+	width: 8px;
+	background: #3498db;
+	z-index: 0;
+  }
+  #experience-timeline:after {
+	position: absolute;
+	content: "";
+	width: 8px;
+	height: 40px;
+	background: #3498db;
+	background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
+	top: 100%;
+	left: 30%;
+  }
   
   .vtimeline-point {
 	position: relative;
@@ -2739,7 +2740,7 @@ input, select, textarea {
 	border-radius: 50%;
 	float: left;
 	z-index: 99;
-	margin-left: 28.1%;;
+	margin-left: 28%;;
   }
   .vtimeline-icon i {
 	display: block;
