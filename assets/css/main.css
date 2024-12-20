@@ -258,6 +258,8 @@ input, select, textarea {
 
 		}
 
+
+		
 /* Row */
 
 	.row {
@@ -1904,6 +1906,9 @@ input, select, textarea {
 		border: 0;
 	}
 
+
+
+
 /* Table */
 
 	table {
@@ -2203,6 +2208,14 @@ input, select, textarea {
 				}
 
 /* Main */
+	.text-box {
+		background-color: white; /* White background */
+		padding: 20px; /* Adds space around the text */
+		border-radius: 8px; /* Optional: rounded corners */
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow */
+		color: #333; /* Optional: change text color for contrast */
+		opacity: 0.89; /* Makes the box slightly transparent */
+	}
 
 	#main {
 		margin-left: 375px;
@@ -2217,9 +2230,11 @@ input, select, textarea {
 			background-image: url("images/overlay.png");
 		}
 
+
+
 			#main > section.dark {
 				color: #ddd;
-				color: rgba(255, 255, 255, 0.75);
+				color: rgb(255, 255, 255);
 			}
 
 				#main > section.dark h2, #main > section.dark h3, #main > section.dark h4, #main > section.dark h5, #main > section.dark h6 {
@@ -2227,7 +2242,7 @@ input, select, textarea {
 				}
 
 				#main > section.dark strong {
-					color: #fff;
+					color: #000000;
 					border-color: inherit;
 				}
 
@@ -2248,7 +2263,7 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("../../images/banner.jpg");
+				background-image: url("../../images/Banner_photo.jpg");
 			}
 
 			#main > section.two {
@@ -2256,7 +2271,7 @@ input, select, textarea {
 			}
 
 			#main > section.three {
-				background-color: #ecf1f1;
+				background-color: #ececf1;
 			}
 
 			#main > section.four {
@@ -2631,3 +2646,106 @@ input, select, textarea {
 				}
 
 	}
+
+/*
+    --------------------------------
+    ----- 6. Experience Styles -----
+    --------------------------------
+*/
+#experience {
+	padding: 50px 15px;
+	text-align: center;
+	border-bottom: 1px solid #dcd9d9;
+  }
+  #experience h2 {
+	color: #374054;
+  }
+  
+  #experience-timeline {
+	margin: 30px auto 0 auto;
+	position: relative;
+	max-width: 1000px;
+  }
+  #experience-timeline:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: 303px;
+	right: auto;
+	height: 100%;
+	width: 3px;
+	background: #3498db;
+	z-index: 0;
+  }
+  #experience-timeline:after {
+	position: absolute;
+	content: "";
+	width: 3px;
+	height: 40px;
+	background: #3498db;
+	background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
+	top: 100%;
+	left: 303px;
+  }
+  
+  .vtimeline-content {
+	margin-left: 350px;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	padding: 15px;
+	border-radius: 3px;
+	text-align: left;
+  }
+  .vtimeline-content h3 {
+	font-size: 1.5em;
+	font-weight: 300;
+	color: #374054;
+	display: inline-block;
+	margin: 0;
+  }
+  .vtimeline-content h4 {
+	font-size: 1.2em;
+	font-weight: 300;
+	color: #7e8890;
+	margin: 0 0 15px 0;
+  }
+  .vtimeline-content p {
+	color: #74808a;
+	font-size: .9em;
+	margin: 0;
+  }
+  
+  .vtimeline-point {
+	position: relative;
+	display: block;
+	vertical-align: top;
+	margin-bottom: 30px;
+  }
+  
+  .vtimeline-icon {
+	position: relative;
+	color: #fff;
+	width: 50px;
+	height: 50px;
+	background: #3498db;
+	border-radius: 50%;
+	float: left;
+	z-index: 99;
+	margin-left: 280px;
+  }
+  .vtimeline-icon i {
+	display: block;
+	font-size: 1.5em;
+	margin-top: 10px;
+  }
+  
+  .vtimeline-date {
+	width: 260px;
+	text-align: right;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	font-weight: 300;
+	color: #374054;
+  }
