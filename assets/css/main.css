@@ -2649,7 +2649,7 @@ input, select, textarea {
 
 /*
     --------------------------------
-    ----- 6. Experience Styles -----
+    ----- Experience Styles -----
     --------------------------------
 */
 #experience {
@@ -2691,6 +2691,7 @@ input, select, textarea {
   
   .vtimeline-content {
 	margin-left: 350px;
+	margin-right: 10px;
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	padding: 15px;
@@ -2749,3 +2750,45 @@ input, select, textarea {
 	font-weight: 300;
 	color: #374054;
   }
+
+
+  /*
+    --------------------------------
+    ----- Education Styles -----
+    --------------------------------
+*/
+
+  
+.text-box-education {
+	background-color: white; /* White background */
+	position: relative;
+	padding: 20px; /* Adds space around the text */
+	border-radius: 8px; /* Optional: rounded corners */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds subtle shadow */
+	color: #333; /* Optional: change text color for contrast */
+	opacity: 0.89; /* Makes the box slightly transparent */
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: left;
+}
+
+.university-logo {
+	position: absolute;
+	margin-top: 110px; /* Position it closer to the top of the container */
+	left: 60%; /* Center it horizontally */
+
+	width: 100%; /* Adjust the width dynamically (you can set this percentage as per your design) */
+	max-width: 250px; /* Maximum width to ensure the logo doesn't get too large */
+	height: auto; /* Maintain aspect ratio */
+	z-index: 10;
+  }
+
+#education {
+	padding: 50px 15px;
+	text-align: center;
+	border-bottom: 1px solid #dcd9d9;
+  }
+  #education h2 {
+	color: rgb(56, 59, 54);
+  }
+
