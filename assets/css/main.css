@@ -2662,10 +2662,13 @@ input, select, textarea {
   }
   
   #experience-timeline {
-	margin-top: 30px;
-	margin-left: -100px;
+	margin-top: 30px; /* Adds space from the top */
+	margin-left: -100px; /* Automatically adjusts left margin */
+	margin-right: auto; /* Automatically adjusts right margin */
 	position: relative;
-	max-width: 1000px;
+	max-width: 1000px; /* Sets a maximum width for the element */
+	width: 100%; /* Sets a maximum width for the element */
+	width: -50%; /* Optional: Adjusts the width of the element */
   }
   
   #experience-timeline:before {
@@ -2673,7 +2676,7 @@ input, select, textarea {
 	content: "";
 	top: 0;
 	bottom: 0;
-	left: 303px;
+	left: 30.5%;
 	right: auto;
 	height: 100%;
 	width: 3px;
@@ -2688,12 +2691,12 @@ input, select, textarea {
 	background: #3498db;
 	background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
 	top: 100%;
-	left: 303px;
+	left: 30.5%;
   }
   
   .vtimeline-content {
-	margin-left: 350px;
-	margin-right: 0%;
+	margin-left: 40%;
+	margin-right: -40px;
 	background: #fff;
 	border: 1px solid #e6e6e6;
 	padding: 15px;
@@ -2736,7 +2739,7 @@ input, select, textarea {
 	border-radius: 50%;
 	float: left;
 	z-index: 99;
-	margin-left: 280px;
+	margin-left: 28.1%;;
   }
   .vtimeline-icon i {
 	display: block;
