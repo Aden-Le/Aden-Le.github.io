@@ -1954,6 +1954,7 @@ input, select, textarea {
 		display: inline-block;
 		border-radius: 0.35em;
 		color: #fff !important;
+		
 		text-decoration: none;
 		padding: 0.75em 2.5em 0.75em 2.5em;
 		background-color: #8ebebc;
@@ -2812,4 +2813,62 @@ input, select, textarea {
   #education h2 {
 	color: rgb(56, 59, 54);
   }
+
+
+/*
+    -------------------------------
+    ----- 9. Skills Styles -----
+    -------------------------------
+*/
+#skills {
+	padding: 0px 15px;
+	text-align: center;
+  }
+
+  #skills ul {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 800px;
+  }
+  #skills li {
+	display: inline-block;
+	margin: 7px;
+	border-radius: 8px;
+	padding: 5px 10px;
+	color: #ffffff;
+	background: rgba(250, 15, 15, 0.733);
+	list-style: none;
+	cursor: default;
+	font-size: 1.1em;
+	font-weight: bold;
+  }
+
+#skills_2 {
+	padding: 0px 15px;
+	text-align: center;
+  }
+  #skills_2 h2 {
+	color: #374054;
+	margin-bottom: 50px;
+  }
+  #skills_2 ul {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 800px;
+  }
+  #skills_2 li {
+	display: inline-block;
+	margin: 7px;
+	border-radius: 8px;
+	padding: 5px 10px;
+	color: #ffffff;
+	background: rgba(84, 19, 138, 0.733);
+	list-style: none;
+	cursor: default;
+	font-size: 1.1em;
+	font-weight: bold;
+  }
+  
 
