@@ -2708,14 +2708,14 @@ input, select, textarea {
 	content: "";
 	top: 0;
 	bottom: 0;
-	left: 20%;
+	left: 18.14%;
 	right: auto;
 	height: 100%;
 	width: 8px;
 	background: #3498db;
 	z-index: 0;
   }
-url(http://127.0.0.1:3002/index.html#education)
+
   #experience-timeline:after {
 	position: absolute;
 	content: "";
@@ -2741,7 +2741,7 @@ url(http://127.0.0.1:3002/index.html#education)
 	height: 50px;
 	background: #3498db;
 	border-radius: 50%;
-	left: 17.8%;
+	left: 16%;
 	z-index: 99;
 
 	
