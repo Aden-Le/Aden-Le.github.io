@@ -2662,8 +2662,9 @@ input, select, textarea {
   }
   
   #experience-timeline {
+	position: relative
 	margin-top: 30px; /* Adds space from the top */
-	margin-left: -100px; /* Automatically adjusts left margin */
+	margin-left: -120px; /* Automatically adjusts left margin */
 	margin-right: auto; /* Automatically adjusts right margin */
 	position: relative;
 	max-width: 1000px; /* Sets a maximum width for the element */
@@ -2673,6 +2674,7 @@ input, select, textarea {
   
   
   .vtimeline-content {
+	position: relative;
 	margin-left: 40%;
 	margin-right: -90px;
 	background: #fff;
@@ -2701,27 +2703,28 @@ input, select, textarea {
 	margin: 0;
   }
 
-    #experience-timeline:before {
+    #experience-timeline:before{
 	position: absolute;
 	content: "";
 	top: 0;
 	bottom: 0;
-	left: 30%;
+	left: 20%;
 	right: auto;
 	height: 100%;
 	width: 8px;
 	background: #3498db;
 	z-index: 0;
   }
+url(http://127.0.0.1:3002/index.html#education)
   #experience-timeline:after {
 	position: absolute;
 	content: "";
-	width: 8px;
+	width: 3px;
 	height: 40px;
 	background: #3498db;
 	background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
 	top: 100%;
-	left: 30%;
+	left: 30.5%;
   }
   
   .vtimeline-point {
@@ -2732,15 +2735,16 @@ input, select, textarea {
   }
   
   .vtimeline-icon {
-	position: relative;
+	position: absolute;
 	color: #fff;
 	width: 50px;
 	height: 50px;
 	background: #3498db;
 	border-radius: 50%;
-	float: left;
+	left: 17.8%;
 	z-index: 99;
-	margin-left: 28%;;
+
+	
   }
   .vtimeline-icon i {
 	display: block;
