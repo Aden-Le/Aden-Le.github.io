@@ -1772,12 +1772,14 @@ input, select, textarea {
 		.image.fit {
 			display: block;
 			width: 100%;
+			border: 3px solid rgba(174, 197, 193, 0.623); /* Adds a black border */
 		}
 
 		.image.featured {
 			display: block;
-			width: 100%;
-			margin: 0 0 2em 0;
+			width: 65%;
+			margin-left: 17.5%;
+			margin-bottom: 7%;
 			border-radius: 8px;
 		}
 
@@ -2656,6 +2658,7 @@ input, select, textarea {
     ----- Experience Styles -----
     --------------------------------
 */
+
 #experience {
 	padding: 50px 15px;
 	text-align: center;
@@ -2872,3 +2875,16 @@ input, select, textarea {
   }
   
 
+/*
+    -------------------------------
+    ----- About Me Styles -----
+    -------------------------------
+*/
+#about_me {
+	padding: 0px 15px;
+	text-align: center;
+  }
+  #about_me p {
+	color: #000000;
+	font-family: 'Source Sans Pro', sans-serif;
+  }
