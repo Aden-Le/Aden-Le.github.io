@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+        <meta name="author" content="Aden Le" />
+    
+        <meta name="date" content="2024-12-22" />
+    
+    <title>RNA Flow ~ Human</title>
+
+        <script src="RNA_Flow_Human_Matched_RMD_files/header-attrs-2.29/header-attrs.js"></script>
+        <script src="RNA_Flow_Human_Matched_RMD_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="RNA_Flow_Human_Matched_RMD_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="RNA_Flow_Human_Matched_RMD_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="RNA_Flow_Human_Matched_RMD_files/navigation-1.1/tabsets.js"></script>
+        <link href="RNA_Flow_Human_Matched_RMD_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+        <script src="RNA_Flow_Human_Matched_RMD_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+        <link href="RNA_Flow_Human_Matched_RMD_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+        <link href="RNA_Flow_Human_Matched_RMD_files/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+        <script src="RNA_Flow_Human_Matched_RMD_files/readthedown-0.1/readthedown.js"></script>
+    
+    
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  background-color: #f8f8f8; }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span.al { color: #ef2929; } /* Alert */
+      code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #204a87; } /* Attribute */
+      code span.bn { color: #0000cf; } /* BaseN */
+      code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4e9a06; } /* Char */
+      code span.cn { color: #8f5902; } /* Constant */
+      code span.co { color: #8f5902; font-style: italic; } /* Comment */
+      code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+      code span.dt { color: #204a87; } /* DataType */
+      code span.dv { color: #0000cf; } /* DecVal */
+      code span.er { color: #a40000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #0000cf; } /* Float */
+      code span.fu { color: #204a87; font-weight: bold; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+      code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+      code span.ot { color: #8f5902; } /* Other */
+      code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+      code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+      code span.ss { color: #4e9a06; } /* SpecialString */
+      code span.st { color: #4e9a06; } /* String */
+      code span.va { color: #000000; } /* Variable */
+      code span.vs { color: #4e9a06; } /* VerbatimString */
+      code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
+
+    <!-- code folding -->
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
+
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
+
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
+
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
+</head>
+
+<body class="preload">
+
+   	
+         <!-- readthedown start -->   
+   <div id="content" data-toggle="wy-nav-shift">
+     <nav id="nav-top" role="navigation" aria-label="top navigation">
+       <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+     </nav>
+         
+   
+        
+      <h1 class="title">RNA Flow ~ Human</h1>
+      
+         <!-- readthedown authors -->
+   <div id="sidebar">
+    <h2><a href="#content">RNA Flow ~ Human</a></h2>
+    <div id="toc">
+      <ul>
+      <li><a href="#rna-flow-human" id="toc-rna-flow-human">RNA Flow ~
+      Human</a>
+      <ul>
+      <li><a href="#background-information"
+      id="toc-background-information">Background Information:</a></li>
+      <li><a href="#visualizing-the-data"
+      id="toc-visualizing-the-data">Visualizing the Data</a>
+      <ul>
+      <li><a href="#upload-necessary-packages"
+      id="toc-upload-necessary-packages">Upload Necessary
+      Packages</a></li>
+      <li><a href="#upload-necessary-files-set-seed"
+      id="toc-upload-necessary-files-set-seed">Upload Necessary Files
+      &amp; Set Seed</a></li>
+      <li><a href="#rename-and-reformat-the-data"
+      id="toc-rename-and-reformat-the-data">Rename and Reformat the
+      Data</a></li>
+      <li><a href="#match-the-data-on-whole-cell-average"
+      id="toc-match-the-data-on-whole-cell-average">Match the Data on
+      Whole Cell Average</a></li>
+      <li><a href="#plot-the-data" id="toc-plot-the-data">Plot the
+      Data</a></li>
+      </ul></li>
+      <li><a href="#significance-tests"
+      id="toc-significance-tests">Significance Tests</a>
+      <ul>
+      <li><a href="#chromatin-significance"
+      id="toc-chromatin-significance">Chromatin Significance</a></li>
+      <li><a href="#cytoplasm-significance"
+      id="toc-cytoplasm-significance">Cytoplasm Significance</a></li>
+      <li><a href="#nucleoplasm-significance"
+      id="toc-nucleoplasm-significance">Nucleoplasm
+      Significance</a></li>
+      <li><a href="#polysome-significance"
+      id="toc-polysome-significance">Polysome Significance</a></li>
+      </ul></li>
+      <li><a href="#brief-summary" id="toc-brief-summary">Brief
+      Summary</a></li>
+      </ul></li>
+      </ul>
+    </div>
+    <div id="postamble" data-toggle="wy-nav-shift" class="status">
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> Aden
+Le</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2024-12-22</p>
+          </div>
+   </div>
+     
+
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
+<div id="main">
+<div id="rna-flow-human" class="section level1">
+<h1>RNA Flow ~ Human</h1>
+<div id="background-information" class="section level3">
+<h3>Background Information:</h3>
+<ul>
+<li><p>MAP vs Mean:</p>
+<ul>
+<li>The mean is the average value of a probability distribution,
+representing the central tendency based purely on the data. In contrast,
+the MAP (Maximum A Posteriori) estimate is the most likely value of a
+parameter in Bayesian statistics, incorporating both the observed data
+and prior beliefs.</li>
+</ul></li>
+<li><p>Extracted essential information for the analysis:</p>
+<ul>
+<li><p>Symbol: Gene Symbol</p></li>
+<li><p>PUND: Predicted to Undergo Nucleosome Degradation</p></li>
+<li><p>half_life_chr.Mean:</p>
+<ul>
+<li><p>Mean (minutes) of how long RNA spends in the chromatin</p></li>
+<li><p>half_life_nuc.Mean:</p>
+<ul>
+<li>Mean (minutes) of how long RNA spends in the nucleoplasm</li>
+</ul></li>
+</ul></li>
+<li><p>half_life_cyto.Mean:</p>
+<ul>
+<li>Mean (minutes) of how long RNA spends in the cytoplasm</li>
+</ul></li>
+<li><p>half_life_poly_entry.Mean:</p>
+<ul>
+<li>Mean (minutes) of how long RNA remains available in the cytoplasm
+for potential translation before being degraded or otherwise
+processed.</li>
+</ul></li>
+<li><p>half_life_whole_cell.Mean</p>
+<ul>
+<li>Mean (minutes) of the total time RNA spends in the whole cell.</li>
+</ul></li>
+<li><p>half_life_nucexp_from_nucres.MAP</p>
+<ul>
+<li>MAP (minutes) of the time it takes to export Non-Pund genes out of
+the nucleus</li>
+</ul></li>
+<li><p>half_life_nucexp_from_nucdeg.MAP(PUND)</p>
+<ul>
+<li>MAP (minutes of the time it takes to export PUND gene out of the
+nucleus</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="visualizing-the-data" class="section level2">
+<h2>Visualizing the Data</h2>
+<hr />
+<div id="upload-necessary-packages" class="section level3">
+<h3>Upload Necessary Packages</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Load necessary packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span></code></pre></div>
+<hr />
+</div>
+<div id="upload-necessary-files-set-seed" class="section level3">
+<h3>Upload Necessary Files &amp; Set Seed</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># Set a seed for reproducibility</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">56</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># Upload Buffered Gene Set</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>Buffering_Human_Data_Path <span class="ot">&lt;-</span> <span class="st">&quot;C:/Users/Aden Le/Documents/Cenik Lab/Research Project/RNA_flow/R_Stuff_Human/Human_Buffered_Genes.csv&quot;</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>Buffering_Human_Data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(Buffering_Human_Data_Path)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># Upload tidied Human Data</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>Human_Data_Path <span class="ot">&lt;-</span> <span class="st">&quot;C:/Users/Aden Le/Documents/Cenik Lab/Research Project/RNA_flow/R_Stuff_Human/Human_Data.csv&quot;</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>Human_Data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(Human_Data_Path)</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#------------------------------------------------------------------</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co"># Remove Excess Data</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="fu">remove</span>(Buffering_Human_Data_Path)</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="fu">remove</span>(Human_Data_Path)</span></code></pre></div>
+<ul>
+<li>Contains the average of the replicate means for all of the points of
+interest within the cell: Chromatin, Nucleoplasm, Cytoplasm, Polysome,
+and Whole Cell, Nuclear Export (PUND &amp; Not PUND) &amp; PUND
+Boolean</li>
+</ul>
+<hr />
+</div>
+<div id="rename-and-reformat-the-data" class="section level3">
+<h3>Rename and Reformat the Data</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>Human_Data<span class="sc">$</span>Match <span class="ot">&lt;-</span> Human_Data<span class="sc">$</span>Symbol <span class="sc">%in%</span> Buffering_Human_Data<span class="sc">$</span>Symbo</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#So I can left join it with the same column name</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>Buffering_Human_Data <span class="ot">&lt;-</span> Buffering_Human_Data <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>    <span class="st">&quot;Symbol&quot;</span> <span class="ot">=</span> transcript</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>  )</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#Combine the Human buffering set with the Human Gene Set | Formats the data for matching</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>Human_Data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Human_Data, Buffering_Human_Data, <span class="at">by =</span> <span class="st">&quot;Symbol&quot;</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>Renamed_Human_Data <span class="ot">&lt;-</span> Human_Data <span class="sc">|&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a>    <span class="st">&quot;Chromatin&quot;</span> <span class="ot">=</span> Chromatin.Average,</span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a>    <span class="st">&quot;Nucleoplasm&quot;</span> <span class="ot">=</span> Nucleoplasm.Average,</span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>    <span class="st">&quot;Cytoplasm&quot;</span> <span class="ot">=</span> Cytoplasm.Average,</span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>    <span class="st">&quot;Untranslated Cytoplasm&quot;</span> <span class="ot">=</span> Polysome.Average</span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>  )</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>Human_Data_matchit <span class="ot">&lt;-</span> Renamed_Human_Data <span class="sc">|&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Buffering =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a>    </span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a>    <span class="fu">is.na</span>(Group) <span class="sc">~</span> <span class="st">&quot;TB3&quot;</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>    Group <span class="sc">==</span> <span class="st">&quot;2&quot;</span> <span class="sc">~</span> <span class="st">&quot;TB2&quot;</span>,</span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>    Group <span class="sc">==</span> <span class="st">&quot;1&quot;</span> <span class="sc">~</span> <span class="st">&quot;TB1&quot;</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span>  <span class="co"># You can add a default case with TRUE if needed</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a>    </span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a>  ))</span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a>Human_Data_matchit <span class="ot">&lt;-</span> Human_Data_matchit <span class="sc">%&gt;%</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">match_it_order =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a>    Buffering <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;TB1&quot;</span>, <span class="st">&quot;TB2&quot;</span>) <span class="sc">~</span> <span class="dv">1</span>,  <span class="co"># Assign 1 for Buffering values TB1 and TB2</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a>    Buffering <span class="sc">==</span> <span class="st">&quot;TB3&quot;</span> <span class="sc">~</span> <span class="dv">0</span>,              <span class="co"># Assign 0 for Buffering value TB3</span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>                     <span class="co"># Handle other cases with NA_real_ for numeric NA</span></span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a>  ))</span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" tabindex="-1"></a><span class="co">#------------------------------------------------------------------</span></span>
+<span id="cb3-40"><a href="#cb3-40" tabindex="-1"></a><span class="co"># Remove Excess Data</span></span>
+<span id="cb3-41"><a href="#cb3-41" tabindex="-1"></a><span class="fu">remove</span>(Buffering_Human_Data_Path)</span>
+<span id="cb3-42"><a href="#cb3-42" tabindex="-1"></a><span class="fu">remove</span>(Human_Data_Path)</span></code></pre></div>
+<ul>
+<li>Formats the data in preparation for matching</li>
+</ul>
+<hr />
+</div>
+<div id="match-the-data-on-whole-cell-average" class="section level3">
+<h3>Match the Data on Whole Cell Average</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># Matches the data based on Whole Cell Average</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>m.out <span class="ot">&lt;-</span> <span class="fu">matchit</span>(match_it_order <span class="sc">~</span> Whole.Cell.Average, <span class="at">data =</span> Human_Data_matchit, <span class="at">method =</span> <span class="st">&quot;nearest&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co"># Get the matched data</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>data_matched_human <span class="ot">&lt;-</span> <span class="fu">match.data</span>(m.out)</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#Expands the data so it can be graphed</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(data_matched_human, </span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>                          <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;Chromatin&quot;</span>, <span class="st">&quot;Nucleoplasm&quot;</span>, <span class="st">&quot;Cytoplasm&quot;</span>, <span class="st">&quot;Untranslated Cytoplasm&quot;</span>), </span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>                          <span class="at">names_to =</span> <span class="st">&quot;Variable&quot;</span>, </span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>                          <span class="at">values_to =</span> <span class="st">&quot;Value&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>  <span class="fu">select</span>(Gene, Symbol, PUND, Variable, Value,Buffering)<span class="co"># Convert Value column to numeric</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co"># Convert Value column to numeric</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>data_long<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data_long<span class="sc">$</span>Value)</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co"># Identify the rows with NA values in the Value column</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>na_rows <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(data_long<span class="sc">$</span>Value))</span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co"># Remove rows where Value column has NA</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>data_long_clean <span class="ot">&lt;-</span> data_long[<span class="sc">!</span><span class="fu">is.na</span>(data_long<span class="sc">$</span>Value), ]</span></code></pre></div>
+<hr />
+</div>
+<div id="plot-the-data" class="section level3">
+<h3>Plot the Data</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>data_long_clean<span class="sc">$</span>Buffering <span class="ot">&lt;-</span> <span class="fu">factor</span>(data_long_clean<span class="sc">$</span>Buffering, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;TB1&quot;</span>,<span class="st">&quot;TB2&quot;</span>,<span class="st">&quot;TB3&quot;</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">ggplot</span>(data_long_clean, <span class="fu">aes</span>(Variable, Value, <span class="at">fill=</span><span class="fu">factor</span>(Buffering))) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">outlier.colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">outlier.size =</span> <span class="dv">0</span>, <span class="at">notch =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">position =</span> <span class="fu">position_jitterdodge</span>(<span class="at">jitter.width =</span> <span class="fl">0.3</span>, <span class="at">dodge.width =</span> <span class="fl">0.75</span>)) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">350</span>))<span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Average RNA Linger Time versus Location | Matched on Whole Cell Average | Human&quot;</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;&quot;</span>,  <span class="co"># x-axis label</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Average Minutes&quot;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;&quot;</span>  <span class="co"># Legend title</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;lightgreen&quot;</span>, <span class="st">&quot;grey&quot;</span>),  <span class="co"># Example colors</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;TB1&quot;</span>, <span class="st">&quot;TB2&quot;</span>, <span class="st">&quot;TB3&quot;</span>)  <span class="co"># Example labels</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>),</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="cn">NA</span>),</span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>    <span class="at">panel.spacing =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;lines&quot;</span>),</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>  <span class="co"># Position the legend at the top</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
+<hr />
+</div>
+</div>
+<div id="significance-tests" class="section level2">
+<h2>Significance Tests</h2>
+<hr />
+<div id="chromatin-significance" class="section level3">
+<h3>Chromatin Significance</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co"># Format the genes for the Chromatin Welch test</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>chromatin_genes <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_long_clean, Variable <span class="sc">==</span> <span class="st">&quot;Chromatin&quot;</span>) <span class="co">#Isolates the Chromatin Analysis</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co"># Chromatin | Separates based on Buffering score </span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>group1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(chromatin_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB1&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>group2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(chromatin_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB2&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>group3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(chromatin_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB3&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>group1_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group1)))</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>group2_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group2)))</span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>group3_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group3)))</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co"># Combine the groups into a data frame for testing</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>data_combined_chromatin <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(group1_transform, group2_transform, group3_transform),</span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="st">&quot;Group 2&quot;</span>, <span class="st">&quot;Group 3&quot;</span>), </span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="fu">length</span>(group1_transform), <span class="fu">length</span>(group2_transform), <span class="fu">length</span>(group3_transform))))</span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>)</span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#--------------</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a></span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a><span class="co"># Check normality for each group with a Shapiro test and visualize with a qqline plot</span></span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a>shapiro_test_group1 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group1_transform)</span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a>shapiro_test_group1</span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a>data<span class="sc">:</span>  group1_transform</span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.87608</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">2.561e-13</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group1_transform)                  </span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">qqline</span>(group1_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-6-1.png" width="768" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>shapiro_test_group2 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group2_transform)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>shapiro_test_group2</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>data<span class="sc">:</span>  group2_transform</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.94436</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">4.862e-08</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group2_transform)          </span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">qqline</span>(group2_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-6-2.png" width="768" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>shapiro_test_group3 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group3_transform)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>shapiro_test_group3</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>data<span class="sc">:</span>  group3_transform</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.88145</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group3_transform)                  </span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">qqline</span>(group3_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-6-3.png" width="768" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co"># Levene test shoud be greater than 0.05 to indicate normal distribution</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>levene_test_result <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_chromatin)</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>levene_test_result</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>Levene<span class="st">&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="st">       Df F value  Pr(&gt;F)  </span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="st">group   2  4.5851 0.01042 *</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="st">      983                  </span></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="st">---</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="st">Signif. codes:  0 &#39;</span><span class="sc">**</span><span class="er">*</span><span class="st">&#39; 0.001 &#39;</span><span class="sc">**</span><span class="st">&#39; 0.01 &#39;</span><span class="sc">*</span><span class="st">&#39; 0.05 &#39;</span>.<span class="st">&#39; 0.1 &#39;</span> <span class="st">&#39; 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co"># Welch Anova test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>welch_anova_result <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_chromatin)</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>welch_anova_result</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>    One<span class="sc">-</span>way analysis of <span class="fu">means</span> (not assuming equal variances)</span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a>data<span class="sc">:</span>  value and group</span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>F <span class="ot">=</span> <span class="fl">9.1355</span>, num df <span class="ot">=</span> <span class="fl">2.00</span>, denom df <span class="ot">=</span> <span class="fl">550.97</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.000125</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co"># Games-Howell test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>games_howell_result <span class="ot">&lt;-</span> <span class="fu">gamesHowellTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_chromatin)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="fu">print</span>(games_howell_result)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>        Group <span class="dv">1</span> Group <span class="dv">2</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>Group <span class="dv">2</span> <span class="fl">0.96622</span> <span class="sc">-</span>      </span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>Group <span class="dv">3</span> <span class="fl">0.00725</span> <span class="fl">0.00024</span></span></code></pre></div>
+<hr />
+</div>
+<div id="cytoplasm-significance" class="section level3">
+<h3>Cytoplasm Significance</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co"># Format the genes for the Chromatin Welch test</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>cytoplasm_genes <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_long_clean, Variable <span class="sc">==</span> <span class="st">&quot;Cytoplasm&quot;</span>) <span class="co">#Isolates the Chromatin Analysis</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co"># Chromatin | Separates based on Buffering score </span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a>group1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(cytoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB1&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>group2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(cytoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB2&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>group3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(cytoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB3&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>group1_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group1)))</span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>group2_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group2)))</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a>group3_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group3)))</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="co"># Combine the groups into a data frame for testing</span></span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>data_combined_cytoplasm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(group1_transform, group2_transform, group3_transform),</span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="st">&quot;Group 2&quot;</span>, <span class="st">&quot;Group 3&quot;</span>), </span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="fu">length</span>(group1_transform), <span class="fu">length</span>(group2_transform), <span class="fu">length</span>(group3_transform))))</span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a>)</span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a></span>
+<span id="cb15-28"><a href="#cb15-28" tabindex="-1"></a><span class="co">#--------------</span></span>
+<span id="cb15-29"><a href="#cb15-29" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" tabindex="-1"></a><span class="co"># Check normality for each group with a Shapiro test and visualize with a qqline plot</span></span>
+<span id="cb15-31"><a href="#cb15-31" tabindex="-1"></a>shapiro_test_group1 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group1_transform)</span>
+<span id="cb15-32"><a href="#cb15-32" tabindex="-1"></a>shapiro_test_group1</span>
+<span id="cb15-33"><a href="#cb15-33" tabindex="-1"></a></span>
+<span id="cb15-34"><a href="#cb15-34" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb15-35"><a href="#cb15-35" tabindex="-1"></a></span>
+<span id="cb15-36"><a href="#cb15-36" tabindex="-1"></a>data<span class="sc">:</span>  group1_transform</span>
+<span id="cb15-37"><a href="#cb15-37" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.91866</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">2.147e-10</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group1_transform)                  </span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="fu">qqline</span>(group1_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-7-1.png" width="768" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>shapiro_test_group2 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group2_transform)</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>shapiro_test_group2</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>data<span class="sc">:</span>  group2_transform</span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.98306</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.005115</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group2_transform)          </span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a><span class="fu">qqline</span>(group2_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-7-2.png" width="768" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>shapiro_test_group3 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group3_transform)</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>shapiro_test_group3</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>data<span class="sc">:</span>  group3_transform</span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.95631</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">6.551e-11</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group3_transform)                  </span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="fu">qqline</span>(group3_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-7-3.png" width="768" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co"># Levene test shoud be greater than 0.05 to indicate normal distribution</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>levene_test_result <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_cytoplasm)</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>levene_test_result</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>Levene<span class="st">&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="st">       Df F value Pr(&gt;F)</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="st">group   2  0.0639 0.9381</span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="st">      983               </span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co"># Welch Anova test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>welch_anova_result <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_cytoplasm)</span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>welch_anova_result</span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>    One<span class="sc">-</span>way analysis of <span class="fu">means</span> (not assuming equal variances)</span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a>data<span class="sc">:</span>  value and group</span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a>F <span class="ot">=</span> <span class="fl">6.5525</span>, num df <span class="ot">=</span> <span class="fl">2.00</span>, denom df <span class="ot">=</span> <span class="fl">525.62</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.001546</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="co"># Games-Howell test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>games_howell_result <span class="ot">&lt;-</span> <span class="fu">gamesHowellTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_cytoplasm)</span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="fu">print</span>(games_howell_result)</span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>        Group <span class="dv">1</span> Group <span class="dv">2</span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>Group <span class="dv">2</span> <span class="fl">0.0042</span>  <span class="sc">-</span>      </span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a>Group <span class="dv">3</span> <span class="fl">0.0029</span>  <span class="fl">0.9550</span> </span></code></pre></div>
+<hr />
+</div>
+<div id="nucleoplasm-significance" class="section level3">
+<h3>Nucleoplasm Significance</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="co"># Nucleoplasm Welch Anova Test</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co"># Format the genes for the Chromatin Welch test</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>nucleoplasm_genes <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_long_clean, Variable <span class="sc">==</span> <span class="st">&quot;Nucleoplasm&quot;</span>) <span class="co">#Isolates the Chromatin Analysis</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="co"># Nucleoplasm | Separates based on Buffering score </span></span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a>group1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(nucleoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB1&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>group2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(nucleoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB2&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>group3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(nucleoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB3&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" tabindex="-1"></a>group1_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group1)))</span>
+<span id="cb24-20"><a href="#cb24-20" tabindex="-1"></a>group2_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group2)))</span>
+<span id="cb24-21"><a href="#cb24-21" tabindex="-1"></a>group3_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group3)))</span>
+<span id="cb24-22"><a href="#cb24-22" tabindex="-1"></a></span>
+<span id="cb24-23"><a href="#cb24-23" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" tabindex="-1"></a><span class="co"># Combine the groups into a data frame for testing</span></span>
+<span id="cb24-25"><a href="#cb24-25" tabindex="-1"></a>data_combined_nucleoplasm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb24-26"><a href="#cb24-26" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(group1_transform, group2_transform, group3_transform),</span>
+<span id="cb24-27"><a href="#cb24-27" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="st">&quot;Group 2&quot;</span>, <span class="st">&quot;Group 3&quot;</span>), </span>
+<span id="cb24-28"><a href="#cb24-28" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="fu">length</span>(group1_transform), <span class="fu">length</span>(group2_transform), <span class="fu">length</span>(group3_transform))))</span>
+<span id="cb24-29"><a href="#cb24-29" tabindex="-1"></a>)</span>
+<span id="cb24-30"><a href="#cb24-30" tabindex="-1"></a></span>
+<span id="cb24-31"><a href="#cb24-31" tabindex="-1"></a><span class="co">#--------------</span></span>
+<span id="cb24-32"><a href="#cb24-32" tabindex="-1"></a></span>
+<span id="cb24-33"><a href="#cb24-33" tabindex="-1"></a><span class="co"># Check normality for each group with a Shapiro test and visualize with a qqline plot</span></span>
+<span id="cb24-34"><a href="#cb24-34" tabindex="-1"></a>shapiro_test_group1 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group1_transform)</span>
+<span id="cb24-35"><a href="#cb24-35" tabindex="-1"></a>shapiro_test_group1</span>
+<span id="cb24-36"><a href="#cb24-36" tabindex="-1"></a></span>
+<span id="cb24-37"><a href="#cb24-37" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb24-38"><a href="#cb24-38" tabindex="-1"></a></span>
+<span id="cb24-39"><a href="#cb24-39" tabindex="-1"></a>data<span class="sc">:</span>  group1_transform</span>
+<span id="cb24-40"><a href="#cb24-40" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.92656</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">9.008e-10</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group1_transform)                  </span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="fu">qqline</span>(group1_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>shapiro_test_group2 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group2_transform)</span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>shapiro_test_group2</span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>data<span class="sc">:</span>  group2_transform</span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.93833</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">1.269e-08</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group2_transform)          </span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="fu">qqline</span>(group2_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-8-2.png" width="768" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>shapiro_test_group3 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group3_transform)</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>shapiro_test_group3</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a>data<span class="sc">:</span>  group3_transform</span>
+<span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.9646</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">1.602e-09</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group3_transform)                  </span>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a><span class="fu">qqline</span>(group3_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-8-3.png" width="768" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a></span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="co"># Levene test shoud be greater than 0.05 to indicate normal distribution</span></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>levene_test_result <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_nucleoplasm)</span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a>levene_test_result</span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a>Levene<span class="st">&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb30-6"><a href="#cb30-6" tabindex="-1"></a><span class="st">       Df F value Pr(&gt;F)</span></span>
+<span id="cb30-7"><a href="#cb30-7" tabindex="-1"></a><span class="st">group   2  1.6545 0.1917</span></span>
+<span id="cb30-8"><a href="#cb30-8" tabindex="-1"></a><span class="st">      984               </span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="co"># Welch Anova test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>welch_anova_result <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_nucleoplasm)</span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a>welch_anova_result</span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a>    One<span class="sc">-</span>way analysis of <span class="fu">means</span> (not assuming equal variances)</span>
+<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a>data<span class="sc">:</span>  value and group</span>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a>F <span class="ot">=</span> <span class="fl">3.9033</span>, num df <span class="ot">=</span> <span class="fl">2.00</span>, denom df <span class="ot">=</span> <span class="fl">502.58</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.02079</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a></span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="co"># Games-Howell test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>games_howell_result <span class="ot">&lt;-</span> <span class="fu">gamesHowellTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_nucleoplasm)</span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a><span class="fu">print</span>(games_howell_result)</span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>        Group <span class="dv">1</span> Group <span class="dv">2</span></span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a>Group <span class="dv">2</span> <span class="fl">0.016</span>   <span class="sc">-</span>      </span>
+<span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a>Group <span class="dv">3</span> <span class="fl">0.093</span>   <span class="fl">0.467</span>  </span></code></pre></div>
+<hr />
+</div>
+<div id="polysome-significance" class="section level3">
+<h3>Polysome Significance</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a></span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="co"># Untranslated Cytoplasm Welch Anova Test</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a><span class="co"># Format the genes for the Chromatin Welch test</span></span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a>untranslated_cytoplasm_genes <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_long_clean, Variable <span class="sc">==</span> <span class="st">&quot;Untranslated Cytoplasm&quot;</span>) <span class="co">#Isolates the Chromatin Analysis</span></span>
+<span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" tabindex="-1"></a><span class="co">#---------------</span></span>
+<span id="cb33-10"><a href="#cb33-10" tabindex="-1"></a><span class="co"># Untranslated Cytoplasm | Separates based on Buffering score </span></span>
+<span id="cb33-11"><a href="#cb33-11" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" tabindex="-1"></a>group1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(untranslated_cytoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB1&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-13"><a href="#cb33-13" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb33-14"><a href="#cb33-14" tabindex="-1"></a>group2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(untranslated_cytoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB2&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-15"><a href="#cb33-15" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb33-16"><a href="#cb33-16" tabindex="-1"></a>group3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(untranslated_cytoplasm_genes, Buffering <span class="sc">==</span> <span class="st">&quot;TB3&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-17"><a href="#cb33-17" tabindex="-1"></a>  <span class="fu">select</span>(Value)</span>
+<span id="cb33-18"><a href="#cb33-18" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" tabindex="-1"></a>group1_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group1)))</span>
+<span id="cb33-20"><a href="#cb33-20" tabindex="-1"></a>group2_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group2)))</span>
+<span id="cb33-21"><a href="#cb33-21" tabindex="-1"></a>group3_transform <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.numeric</span>(<span class="fu">unlist</span>(group3)))</span>
+<span id="cb33-22"><a href="#cb33-22" tabindex="-1"></a></span>
+<span id="cb33-23"><a href="#cb33-23" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" tabindex="-1"></a><span class="co"># Combine the groups into a data frame for testing</span></span>
+<span id="cb33-25"><a href="#cb33-25" tabindex="-1"></a>data_combined_untranslated_cytoplasm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb33-26"><a href="#cb33-26" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(group1_transform, group2_transform, group3_transform),</span>
+<span id="cb33-27"><a href="#cb33-27" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;Group 1&quot;</span>, <span class="st">&quot;Group 2&quot;</span>, <span class="st">&quot;Group 3&quot;</span>), </span>
+<span id="cb33-28"><a href="#cb33-28" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="fu">length</span>(group1_transform), <span class="fu">length</span>(group2_transform), <span class="fu">length</span>(group3_transform))))</span>
+<span id="cb33-29"><a href="#cb33-29" tabindex="-1"></a>)</span>
+<span id="cb33-30"><a href="#cb33-30" tabindex="-1"></a></span>
+<span id="cb33-31"><a href="#cb33-31" tabindex="-1"></a><span class="co">#--------------</span></span>
+<span id="cb33-32"><a href="#cb33-32" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="#cb33-33" tabindex="-1"></a><span class="co"># Check normality for each group with a Shapiro test and visualize with a qqline plot</span></span>
+<span id="cb33-34"><a href="#cb33-34" tabindex="-1"></a>shapiro_test_group1 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group1_transform)</span>
+<span id="cb33-35"><a href="#cb33-35" tabindex="-1"></a>shapiro_test_group1</span>
+<span id="cb33-36"><a href="#cb33-36" tabindex="-1"></a></span>
+<span id="cb33-37"><a href="#cb33-37" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb33-38"><a href="#cb33-38" tabindex="-1"></a></span>
+<span id="cb33-39"><a href="#cb33-39" tabindex="-1"></a>data<span class="sc">:</span>  group1_transform</span>
+<span id="cb33-40"><a href="#cb33-40" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.96518</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">9.786e-06</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a></span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group1_transform)                  </span>
+<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a><span class="fu">qqline</span>(group1_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a></span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>shapiro_test_group2 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group2_transform)</span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a>shapiro_test_group2</span>
+<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a>data<span class="sc">:</span>  group2_transform</span>
+<span id="cb35-8"><a href="#cb35-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.90564</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">2.702e-11</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a></span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group2_transform)          </span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a><span class="fu">qqline</span>(group2_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-9-2.png" width="768" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>shapiro_test_group3 <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(group3_transform)</span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>shapiro_test_group3</span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a>    Shapiro<span class="sc">-</span>Wilk normality test</span>
+<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a>data<span class="sc">:</span>  group3_transform</span>
+<span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a>W <span class="ot">=</span> <span class="fl">0.92653</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">8.967e-15</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a></span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a><span class="fu">qqnorm</span>(group3_transform)                  </span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a><span class="fu">qqline</span>(group3_transform, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="RNA_Flow_Human_Matched_RMD_files/figure-html/unnamed-chunk-9-3.png" width="768" /></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a></span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="co"># Levene test shoud be greater than 0.05 to indicate normal distribution</span></span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a>levene_test_result <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_untranslated_cytoplasm)</span>
+<span id="cb39-4"><a href="#cb39-4" tabindex="-1"></a>levene_test_result</span>
+<span id="cb39-5"><a href="#cb39-5" tabindex="-1"></a>Levene<span class="st">&#39;s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb39-6"><a href="#cb39-6" tabindex="-1"></a><span class="st">       Df F value Pr(&gt;F)</span></span>
+<span id="cb39-7"><a href="#cb39-7" tabindex="-1"></a><span class="st">group   2  2.0532 0.1289</span></span>
+<span id="cb39-8"><a href="#cb39-8" tabindex="-1"></a><span class="st">      981               </span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a></span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a><span class="co"># Welch Anova test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a>welch_anova_result <span class="ot">&lt;-</span> <span class="fu">oneway.test</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_untranslated_cytoplasm)</span>
+<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a>welch_anova_result</span>
+<span id="cb40-5"><a href="#cb40-5" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" tabindex="-1"></a>    One<span class="sc">-</span>way analysis of <span class="fu">means</span> (not assuming equal variances)</span>
+<span id="cb40-7"><a href="#cb40-7" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="#cb40-8" tabindex="-1"></a>data<span class="sc">:</span>  value and group</span>
+<span id="cb40-9"><a href="#cb40-9" tabindex="-1"></a>F <span class="ot">=</span> <span class="fl">51.848</span>, num df <span class="ot">=</span> <span class="fl">2.00</span>, denom df <span class="ot">=</span> <span class="fl">534.41</span>, p<span class="sc">-</span>value <span class="sc">&lt;</span> <span class="fl">2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a></span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a><span class="co"># Games-Howell test, doesn&#39;t assume equal variance or equal sample sizes</span></span>
+<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a>games_howell_result <span class="ot">&lt;-</span> <span class="fu">gamesHowellTest</span>(value <span class="sc">~</span> group, <span class="at">data =</span> data_combined_untranslated_cytoplasm)</span>
+<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a><span class="fu">print</span>(games_howell_result)</span>
+<span id="cb41-5"><a href="#cb41-5" tabindex="-1"></a>        Group <span class="dv">1</span> Group <span class="dv">2</span></span>
+<span id="cb41-6"><a href="#cb41-6" tabindex="-1"></a>Group <span class="dv">2</span> <span class="fl">1.3e-08</span> <span class="sc">-</span>      </span>
+<span id="cb41-7"><a href="#cb41-7" tabindex="-1"></a>Group <span class="dv">3</span> <span class="fl">1.6e-10</span> <span class="fl">0.00087</span></span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="brief-summary" class="section level2">
+<h2>Brief Summary</h2>
+<ul>
+<li>According to the results of the Games-Howell test, the RNA of
+buffered genes spend significantly more time in the chromatin, polysome,
+and possibly the cytoplasm than non-buffered genes</li>
+</ul>
+</div>
+</div>
+</div>
+
+   
+   
+            
+      
+
+  <script>
+    $(document).ready(function () {
+
+			
+ 	 	$('#content img').addClass("image-thumb");
+		
+		$('#content img:not(.no-lightbox)').addClass("image-lb");
+	$('#content').magnificPopup({
+	    type:'image',
+	    closeOnContentClick: false,
+	    closeBtnInside: false,
+	    delegate: '.image-lb',
+	    gallery: {enabled: true },
+	    image: {
+	        verticalFit: true,
+		titleSrc: 'alt'
+	    }
+ 	});
+ 	    });
+  </script>
+
+
+
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
+</body>
+</html>
